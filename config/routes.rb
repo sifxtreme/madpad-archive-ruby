@@ -3,10 +3,8 @@ Pad::Application.routes.draw do
 
   get  "/*all", :constraints => { :all => /.*/ }, :to => "posts#post"
   post  "/*all", :constraints => { :all => /.*/ }, :to => "posts#update"
-  get "/refresh_me_one_more_time", :to => "posts#refresh"
+  # get "/refresh_me_one_more_time", :to => "posts#refresh"
 
-
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

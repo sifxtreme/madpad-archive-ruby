@@ -1,14 +1,32 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<textarea id="content"><% if(@post.content) %><%= @post.content %><% end %></textarea>
+			<textarea placeholder="Enter text here" id="content"><% if(@post.content) %><%= @post.content %><% end %></textarea>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#content').keyup(function(){
+	$(document).delegate('textarea', 'keydown', function(e) {
+	  var keyCode = e.keyCode || e.which;
+
+	  if (keyCode == 9) {
+	    e.preventDefault();
+	    var start = $(this).get(0).selectionStart;
+	    var end = $(this).get(0).selectionEnd;
+
+	    // set textarea value to: text before caret + tab + text after caret
+	    $(this).val($(this).val().substring(0, start)
+	                + "\t"
+	                + $(this).val().substring(end));
+
+	    // put caret at right position again
+	    $(this).get(0).selectionStart =
+	    $(this).get(0).selectionEnd = start + 1;
+	  }
+	});
+	$('textarea').keyup(function(){
 		$.post( "", { url: "<%= @post.url %>", content: $('#content').val() })
 	});
 })

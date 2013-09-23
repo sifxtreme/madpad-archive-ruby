@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 	def index
 			@p = Post.all
-			render inline: "<%= debug @p %>"
+			# render inline: "<%= debug @p %>"
 	end
 
 	def post
@@ -27,4 +27,5 @@ class PostsController < ApplicationController
 		@post = Post.find_by url: params[:url]
 		render text: "<%= @post.content %>"
 	end
+	
 end
