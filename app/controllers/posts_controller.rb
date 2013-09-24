@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	def index
-			@p = Post.all
+			@random = ([*('A'..'Z'),*('0'..'9'),*('a'..'z')]).sample(3).join
+			# @p = Post.all
 			# render inline: "<%= debug @p %>"
 	end
 
@@ -27,5 +28,5 @@ class PostsController < ApplicationController
 		@post = Post.find_by url: params[:url]
 		render text: "<%= @post.content %>"
 	end
-	
+
 end

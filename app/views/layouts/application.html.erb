@@ -11,13 +11,18 @@
   	width: 95%;
   	margin: auto;
   	color: white;
+  	font-family: 'Inconsolata', sans-serif;
   	font-size: 20px;
+  }
+  @media all and (max-width: 640px){
+  	body .main{
+  		font-size: 30px;
+  	}
   }
   .main{
   	margin-top: 50px;
   	border-radius: 4px;
   	padding: 15px;
-  	font-family: 'Inconsolata', sans-serif;
   	width: 100%;
   	min-height: 400px;
   	border: 1px solid #62d9ef;
@@ -25,9 +30,22 @@
   	color: #62d9ef;
   	resize: none;
   }
+  .info{
+  	margin-top: 50px;
+  }
+  .main h1{
+  	text-align: center;
+  	margin-top: 50px;
+  	color: #ddd;
+  }
+  .main p{
+  	margin: 25px 100px;
+  }
+
   </style>
 </head>
 <body>
+	<a href="https://github.com/sifxtreme/madpad"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
 
 <%= yield %>
 
